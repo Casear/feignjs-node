@@ -1,6 +1,6 @@
 {
   "name": "feignjs-node",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "feignjs plain node integration",
   "main": "feign-node.js",
   "scripts": {
@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/feignjs/feignjs-node#readme",
   "dependencies": {
-    "args-js": "^0.10.6"
+    "args-js": "^0.10.6",
+    "lodash": "^3.9.3"
   }
 }

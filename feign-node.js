@@ -40,7 +40,7 @@ FeignNodeClient.prototype.request =  function(request){
       return reject({status: 0, message: e });
     });
     
-    if (request.parameters){
+    if (options.method !== 'GET' && request.parameters){
       req.write(request.parameters);
     }
     
@@ -56,9 +56,14 @@ FeignNodeClient.prototype._createHttpOptions = function(baseUrl, requestOptions,
       { uri: Args.STRING | Args.Required}
     ], [requestOptions]);
 
-  var url = URL.parse(baseUrl + options.uri);
+  var url = URL.parse(baseUrl + options.uri, true);
+  if (options.method === 'GET'){
+    url.query = _.defaults(parameters, url.query);  
+  }
+  url =  URL.parse(URL.format(url));
   return _.defaults({
-    host: url.host,
+    hostname: url.hostname,
+    port: url.port,
     method: options.method,
     path: url.path
   }, this.defaults);
