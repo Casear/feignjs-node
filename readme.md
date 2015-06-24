@@ -12,7 +12,7 @@ this library can be used as client for feign:
 
 ```
 feign.builder()
-	.client(new FeignNodeClient())        
+	.client(new FeignNode())        
     .target(restDescription, 'http://jsonplaceholder.typicode.com');
 ```
 
