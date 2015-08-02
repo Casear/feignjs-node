@@ -1,6 +1,6 @@
 {
   "name": "feignjs-node",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "feignjs plain node integration",
   "main": "feign-node.js",
   "scripts": {
