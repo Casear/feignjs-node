@@ -28,9 +28,20 @@ FeignNodeClient.prototype.request =  function(request){
         body += chunk;
       });
       res.on('end', function() {
-         if (res.statusCode >= 400)
-            return reject({status: res.statusCode, body: body });
-        
+         if (res.statusCode >= 400){
+	    var result = {raw: res, status: res.statusCode, body: "" }
+	    if (!body || !(typeof(body) === "string"))
+		result["body"] = body;
+	    else{
+		try{
+			result["body"] = JSON.parse(body);
+		}catch(e){
+			result["body"] = body;
+		}
+	    }
+            
+	    return reject(result);
+         }
          return resolve({raw: res, body: body });
       });
      
