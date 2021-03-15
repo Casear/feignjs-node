@@ -29,7 +29,7 @@ FeignNodeClient.prototype.request =  function(request){
       });
       res.on('end', function() {
          if (res.statusCode >= 400)
-            return reject({status: res.statusCode, message: {} });
+            return reject({status: res.statusCode, body: body });
         
          return resolve({raw: res, body: body });
       });
