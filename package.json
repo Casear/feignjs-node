@@ -24,6 +24,6 @@
   "homepage": "https://github.com/feignjs/feignjs-node#readme",
   "dependencies": {
     "args-js": "^0.10.6",
-    "lodash": "^3.9.3"
+    "lodash": "^4.17.21"
   }
 }
